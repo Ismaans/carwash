@@ -68,4 +68,26 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById(`service-${tab.dataset.service}`).classList.add('active');
         });
     });
-}); 
+});
+
+// Contact button functionality
+function handleContact() {
+    const phoneNumber = '+15713658670';
+    const options = document.createElement('div');
+    options.className = 'contact-options';
+    options.innerHTML = `
+        <div class="contact-overlay" onclick="this.parentElement.remove()"></div>
+        <div class="contact-popup">
+            <a href="tel:${phoneNumber}" class="contact-option">
+                <i class="fas fa-phone"></i> Call
+            </a>
+            <a href="sms:${phoneNumber}" class="contact-option">
+                <i class="fas fa-comment"></i> Text
+            </a>
+            <button onclick="this.parentElement.parentElement.remove()" class="contact-option cancel">
+                Cancel
+            </button>
+        </div>
+    `;
+    document.body.appendChild(options);
+}
