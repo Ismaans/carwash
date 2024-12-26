@@ -3,66 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sparkle & Shine Car Wash</title>
+    <title>Rahim's Detailing Service</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <style>
+        .book-now-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .book-now-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <h1>Darsanni Paani Car Wash Jaani</h1>
+                <h1>Rahim's Detailing Service</h1>
             </div>
             <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#services">Pricing</a></li>
+                <li><a href="#reviews">Reviews</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </nav>
     </header>
 
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero-content">
-            <h2>Rahim's Detailing</h2>
-            <a href="#services" class="cta-button">Transform Your Ride</a>
-        </div>
-        <div class="hero-illustration">
-            <!-- We'll need a cool SVG illustration here -->
+            <span class="hero-tag">Professional Mobile Detailing</span>
+            <h2>Premium Car Wash Service</h2>
+            <p class="hero-subtitle">Quick • Affordable • Professional</p>
+            <div class="hero-cta-group">
+                <a href="#services" class="cta-button secondary">View Services</a>
+            </div>
+            <div class="hero-features">
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <span>Quick Service</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Fully Insured</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-star"></i>
+                    <span>5-Star Rated</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <section id="services" class="services">
         <h2>Our Services</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <h3>Basic Wash</h3>
-                <p class="price">$25</p>
-                <ul>
-                    <li>Exterior Wash</li>
-                    <li>Hand Dry</li>
-                    <li>Wheel Cleaning</li>
-                </ul>
+        <div class="services-container">
+            <div class="service-tabs">
+                <button class="service-tab active" data-service="a">Standard Service</button>
+                <button class="service-tab" data-service="b">Premium Service</button>
             </div>
-            <div class="service-card">
-                <h3>Deluxe Wash</h3>
-                <p class="price">$40</p>
-                <ul>
-                    <li>Basic Wash +</li>
-                    <li>Interior Vacuum</li>
-                    <li>Dashboard Cleaning</li>
-                    <li>Window Cleaning</li>
-                </ul>
+            
+            <div class="service-content active" id="service-a">
+                <div class="service-cards">
+                    <div class="service-card">
+                        <div class="card-header">
+                            <i class="fas fa-car"></i>
+                            <h3>Sedan</h3>
+                            <p class="price">$50</p>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Interior Vacuum</li>
+                                <li><i class="fas fa-check"></i> Foam soap wash</li>
+                                <li><i class="fas fa-check"></i> Tire and rims cleaned</li>
+                                <li><i class="fas fa-check"></i> Car wax</li>
+                                <li><i class="fas fa-check"></i> Tire shine</li>
+                            </ul>
+                        </div>
+                        <button class="book-now-btn" onclick="openBookingModal('standard-sedan')">Book Now</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="card-header">
+                            <i class="fas fa-truck-pickup"></i>
+                            <h3>SUV</h3>
+                            <p class="price">$75</p>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Interior Vacuum</li>
+                                <li><i class="fas fa-check"></i> Foam soap wash</li>
+                                <li><i class="fas fa-check"></i> Tire and rims cleaned</li>
+                                <li><i class="fas fa-check"></i> Car wax</li>
+                                <li><i class="fas fa-check"></i> Tire shine</li>
+                            </ul>
+                        </div>
+                        <button class="book-now-btn" onclick="openBookingModal('standard-suv')">Book Now</button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="card-header">
+                            <i class="fas fa-truck"></i>
+                            <h3>Truck</h3>
+                            <p class="price">$100</p>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Interior Vacuum</li>
+                                <li><i class="fas fa-check"></i> Foam soap wash</li>
+                                <li><i class="fas fa-check"></i> Tire and rims cleaned</li>
+                                <li><i class="fas fa-check"></i> Car wax</li>
+                                <li><i class="fas fa-check"></i> Tire shine</li>
+                            </ul>
+                        </div>
+                        <button class="book-now-btn" onclick="openBookingModal('standard-truck')">Book Now</button>
+                    </div>
+                </div>
             </div>
-            <div class="service-card">
-                <h3>Premium Detail</h3>
-                <p class="price">$75</p>
-                <ul>
-                    <li>Deluxe Wash +</li>
-                    <li>Wax Treatment</li>
-                    <li>Leather Conditioning</li>
-                    <li>Tire Shine</li>
-                </ul>
+
+            <div class="service-content" id="service-b">
+                <div class="service-cards">
+                    <div class="service-card premium">
+                        <div class="card-header">
+                            <i class="fas fa-car"></i>
+                            <h3>Sedan</h3>
+                            <p class="price">$75</p>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Interior Vacuum</li>
+                                <li><i class="fas fa-check"></i> Foam soap wash</li>
+                                <li><i class="fas fa-check"></i> Tire and rims cleaned</li>
+                                <li><i class="fas fa-check"></i> Car wax</li>
+                                <li><i class="fas fa-check"></i> Tire shine</li>
+                                <li><i class="fas fa-check"></i> Leather seats cleaned</li>
+                                <li><i class="fas fa-check"></i> Trunk Cleaned</li>
+                                <li><i class="fas fa-check"></i> Door Jambs cleaned</li>
+                                <li><i class="fas fa-check"></i> Floor mats cleaned</li>
+                                <li><i class="fas fa-check"></i> Air Freshener</li>
+                            </ul>
+                        </div>
+                        <button class="book-now-btn" onclick="openBookingModal('premium-sedan')">Book Now</button>
+                    </div>
+
+                    <div class="service-card premium">
+                        <div class="card-header">
+                            <i class="fas fa-truck-pickup"></i>
+                            <h3>SUV</h3>
+                            <p class="price">$100</p>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Interior Vacuum</li>
+                                <li><i class="fas fa-check"></i> Foam soap wash</li>
+                                <li><i class="fas fa-check"></i> Tire and rims cleaned</li>
+                                <li><i class="fas fa-check"></i> Car wax</li>
+                                <li><i class="fas fa-check"></i> Tire shine</li>
+                                <li><i class="fas fa-check"></i> Leather seats cleaned</li>
+                                <li><i class="fas fa-check"></i> Trunk Cleaned</li>
+                                <li><i class="fas fa-check"></i> Door Jambs cleaned</li>
+                                <li><i class="fas fa-check"></i> Floor mats cleaned</li>
+                                <li><i class="fas fa-check"></i> Air Freshener</li>
+                            </ul>
+                        </div>
+                        <button class="book-now-btn" onclick="openBookingModal('premium-suv')">Book Now</button>
+                    </div>
+
+                    <div class="service-card premium">
+                        <div class="card-header">
+                            <i class="fas fa-truck"></i>
+                            <h3>Truck</h3>
+                            <p class="price">$125</p>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Interior Vacuum</li>
+                                <li><i class="fas fa-check"></i> Foam soap wash</li>
+                                <li><i class="fas fa-check"></i> Tire and rims cleaned</li>
+                                <li><i class="fas fa-check"></i> Car wax</li>
+                                <li><i class="fas fa-check"></i> Tire shine</li>
+                                <li><i class="fas fa-check"></i> Leather seats cleaned</li>
+                                <li><i class="fas fa-check"></i> Trunk Cleaned</li>
+                                <li><i class="fas fa-check"></i> Door Jambs cleaned</li>
+                                <li><i class="fas fa-check"></i> Floor mats cleaned</li>
+                                <li><i class="fas fa-check"></i> Air Freshener</li>
+                            </ul>
+                        </div>
+                        <button class="book-now-btn" onclick="openBookingModal('premium-truck')">Book Now</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -70,28 +216,23 @@
     <section id="payment" class="payment">
         <h2>Payment Methods</h2>
         <div class="payment-options">
-            <div class="payment-method">
-                <svg viewBox="0 0 24 24" style="width: 48px; height: 48px;">
-                    <path fill="#008CFF" d="M19.8 5.8A4.88 4.88 0 0 0 15 1C12.2 1 10 3.2 10 6c0 1.9 1.1 3.4 2.7 4.3-.6 1.3-1.4 2.5-2.2 3.6-.9 1.4-1.8 2.6-2.2 3.2-.3.4-.5.6-.5.6-.2.2-.4.2-.5-.1-.2-.4-1.5-3.5-1.9-4.5l-2.7 1.5c.4 1 2.1 5 2.5 5.9.4.8.8 1.5 1.8 1.5 1 0 1.6-.3 3.1-2.3 1-.7 2.3-2.8 3.4-4.5 1.4-.3 2.6-.8 3.6-1.3 3.1-1.5 4.7-4 4.7-7.1zm-5.1 5.3c-.7.3-1.4.6-2.2.7.6-1.2 1.1-2.4 1.4-3.6.4.1.7.1 1.1.1 1.3 0 2.4-1.1 2.4-2.4s-1.1-2.4-2.4-2.4c-1.3 0-2.4 1.1-2.4 2.4 0 .3.1.6.2.9-.4 1.4-1 2.8-1.7 4.2-1-.5-1.7-1.5-1.7-2.7 0-1.7 1.3-3 3-3s3 1.3 3 3c0 1.3-.8 2.4-2 2.8z"/>
-                </svg>
+            <a href="https://venmo.com/u/RaAnsarr001" target="_blank" class="payment-method">
+                <img src="./public/venmo-icon.svg" alt="Venmo" class="payment-logo" style="width: 48px; height: 48px; object-fit: contain;">
                 <p>Venmo</p>
-                <span>@YourVenmoHandle</span>
-            </div>
-            <div class="payment-method">
-                <i class="fab fa-paypal"></i>
+                <span>@RaAnsarr001</span>
+            </a>
+            <a href="https://paypal.me/RahimA63" target="_blank" class="payment-method">
+                <i class="fab fa-paypal" style="font-size: 48px;"></i>
                 <p>PayPal</p>
-                <span>your.email@example.com</span>
-            </div>
-            <div class="payment-method">
-                <svg viewBox="0 0 24 24" style="width: 48px; height: 48px;">
-                    <rect width="24" height="24" rx="4" fill="#00D632"/>
-                    <path fill="#ffffff" d="M12 4.5c-4.14 0-7.5 3.36-7.5 7.5 0 4.14 3.36 7.5 7.5 7.5 4.14 0 7.5-3.36 7.5-7.5 0-4.14-3.36-7.5-7.5-7.5zm.75 10.5h-1.5v-3h-1.5v-1.5h1.5v-3h1.5v3h1.5v1.5h-1.5v3z"/>
-                </svg>
+                <span>@RahimA63</span>
+            </a>
+            <a href="https://cash.app/$RaAnsarr01" target="_blank" class="payment-method">
+                <img src="./public/Square_Cash_app_logo.svg" alt="Cash App" class="payment-logo" style="width: 48px; height: 48px; object-fit: contain;">
                 <p>Cash App</p>
-                <span>$YourCashApp</span>
-            </div>
+                <span>$RaAnsarr01</span>
+            </a>
             <div class="payment-method">
-                <i class="fas fa-money-bill-wave"></i>
+                <i class="fas fa-money-bill-wave" style="font-size: 48px; color: #00D632; background: none; -webkit-text-fill-color: #00D632;"></i>
                 <p>Cash</p>
                 <span>Accepted on site</span>
             </div>
@@ -225,17 +366,30 @@
     </section>
 
     <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <div class="contact-info">
-            <p><i class="fas fa-phone"></i> (555) 123-4567</p>
-            <p><i class="fas fa-envelope"></i> info@sparkleshine.com</p>
-            <p><i class="fas fa-location-dot"></i> 123 Clean Street, City, State 12345</p>
+        <div class="contact-container">
+            <h2>Get In Touch</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Call Us</h3>
+                        <p>(571) 365-8670</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Email Us</h3>
+                        <p>info@sparkleshine.com</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
-
-    <footer>
-        <p>&copy; 2024 Sparkle & Shine Car Wash. All rights reserved.</p>
-    </footer>
 
     <script>
         const reviewsContainer = document.querySelector('.reviews-container');
@@ -286,6 +440,44 @@
             const walk = (x - startX) * 2;
             reviewsContainer.scrollLeft = scrollLeft - walk;
         });
+
+        // Booking modal functionality
+        const modal = document.getElementById('bookingModal');
+        const calendlyWidget = document.getElementById('calendlyWidget');
+
+        function openBookingModal(serviceType) {
+            const calendlyUrls = {
+                'standard-sedan': 'https://calendly.com/ismaans-m55/standard-service-sedan',
+                'standard-suv': 'https://calendly.com/ismaans-m55/standard-service-suv',
+                'standard-truck': 'https://calendly.com/ismaans-m55/standard-service-truck',
+                'premium-sedan': 'https://calendly.com/ismaans-m55/premium-service-sedan',
+                'premium-suv': 'https://calendly.com/ismaans-m55/premium-service-suv',
+                'premium-truck': 'https://calendly.com/ismaans-m55/premium-service-truck'
+            };
+            
+            Calendly.initPopupWidget({
+                url: calendlyUrls[serviceType],
+                text: 'Schedule Appointment',
+                color: '#0069ff',
+                textColor: '#ffffff'
+            });
+            return false;
+        }
+
+        function closeBookingModal() {
+            modal.style.display = 'none';
+            // Clear the widget
+            calendlyWidget.innerHTML = '';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeBookingModal();
+            }
+        }
     </script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script src="script.js"></script>
 </body>
 </html> 
