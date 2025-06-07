@@ -24,6 +24,54 @@
         .book-now-btn:hover {
             background-color: #0056b3;
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 5px;
+        }
+
+        .close {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -239,92 +287,6 @@
         </div>
     </section>
 
-    <section id="reviews" class="reviews-section">
-        <h2>What Our Customers Say</h2>
-        <div class="reviews-container">
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Rahim came to my house and did an amazing job on my Tesla! Very professional and the convenience of him coming to me was perfect."</p>
-                <div class="reviewer">
-                    <div class="reviewer-name">Ahmed K.</div>
-                    <div class="review-date">March 2024</div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Great service! Rahim was on time and very detailed with his work. My car looks brand new after the premium service."</p>
-                <div class="reviewer">
-                    <div class="reviewer-name">Zainab M.</div>
-                    <div class="review-date">March 2024</div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Had my car detailed while I was working from home. Very convenient and professional service. Will definitely use again!"</p>
-                <div class="reviewer">
-                    <div class="reviewer-name">Omar R.</div>
-                    <div class="review-date">March 2024</div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Best mobile detailing service in the area! Rahim took great care of my BMW and the results were outstanding."</p>
-                <div class="reviewer">
-                    <div class="reviewer-name">Ali H.</div>
-                    <div class="review-date">March 2024</div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Very impressed with the attention to detail. Got rid of some tough stains in my car seats that I thought would never come out."</p>
-                <div class="reviewer">
-                    <div class="reviewer-name">Fatima S.</div>
-                    <div class="review-date">February 2024</div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Excellent service! Rahim was very thorough and professional. My car hasn't looked this good since I bought it."</p>
-                <div class="reviewer">
-                    <div class="reviewer-name">Hassan M.</div>
-                    <div class="review-date">March 2024</div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Really convenient having the car wash come to me. Rahim did a fantastic job on both interior and exterior."</p>
-                <div class="reviewer">
-                    <div class="reviewer-name">Yasmin A.</div>
-                    <div class="review-date">February 2024</div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"First time trying a mobile detailing service and I'm impressed! Rahim was professional and did amazing work."</p>
-                <div class="reviewer">
-                    <div class="reviewer-name">Kareem N.</div>
-                    <div class="review-date">March 2024</div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"Got the premium service for my SUV and it was worth every penny. Rahim is very skilled at what he does."</p>
-                <div class="reviewer">
-                    <div class="reviewer-name">Sana Q.</div>
-                    <div class="review-date">January 2024</div>
-                </div>
-            </div>
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">"The convenience of having my car detailed at home while I work is unbeatable. Great service and results!"</p>
-                <div class="reviewer">
-                    <div class="reviewer-name">Imran T.</div>
-                    <div class="review-date">March 2024</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="contact" class="contact">
         <div class="contact-container">
             <h2>Get In Touch</h2>
@@ -340,6 +302,14 @@
             </div>
         </div>
     </section>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="booking-frame" style="width: 100%; height: 650px; border: none;"></iframe>
+        </div>
+    </div>
 
     <script>
         const reviewsContainer = document.querySelector('.reviews-container');
@@ -397,12 +367,12 @@
 
         function openBookingModal(serviceType) {
             const calendlyUrls = {
-                'standard-sedan': 'https://calendly.com/ismaans-m55/standard-service-sedan',
-                'standard-suv': 'https://calendly.com/ismaans-m55/standard-service-suv',
-                'standard-truck': 'https://calendly.com/ismaans-m55/standard-service-truck',
-                'premium-sedan': 'https://calendly.com/ismaans-m55/premium-service-sedan',
-                'premium-suv': 'https://calendly.com/ismaans-m55/premium-service-suv',
-                'premium-truck': 'https://calendly.com/ismaans-m55/premium-service-truck'
+                'standard-sedan': 'https://app.simplymeet.me/rahims-detailing/1749316406',
+                'standard-suv': 'https://app.simplymeet.me/rahims-detailing/1749316067',
+                'standard-truck': 'https://app.simplymeet.me/rahims-detailing/1749316312',
+                'premium-sedan': 'https://app.simplymeet.me/rahims-detailing/1749317169',
+                'premium-suv': 'https://app.simplymeet.me/rahims-detailing/1749317239',
+                'premium-truck': 'https://app.simplymeet.me/rahims-detailing/1749317339'
             };
             
             Calendly.initPopupWidget({
@@ -427,7 +397,6 @@
             }
         }
     </script>
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="script.js"></script>
 </body>
 </html> 

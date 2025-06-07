@@ -91,3 +91,50 @@ function handleContact() {
     `;
     document.body.appendChild(options);
 }
+
+// Booking modal functionality
+const bookingUrls = {
+    'standard-sedan': 'https://app.simplymeet.me/rahims-detailing/1749316406?is_widget=1&view=compact',
+    'standard-suv': 'https://app.simplymeet.me/rahims-detailing/1749316067?is_widget=1&view=compact',
+    'standard-truck': 'https://app.simplymeet.me/rahims-detailing/1749316312?is_widget=1&view=compact',
+    'premium-sedan': 'https://app.simplymeet.me/rahims-detailing/1749317169?is_widget=1&view=compact',
+    'premium-suv': 'https://app.simplymeet.me/rahims-detailing/1749317239?is_widget=1&view=compact',
+    'premium-truck': 'https://app.simplymeet.me/rahims-detailing/1749317339?is_widget=1&view=compact'
+};
+
+function openBookingModal(serviceType) {
+    const modal = document.getElementById('bookingModal');
+    const bookingFrame = document.getElementById('booking-frame');
+    
+    if (modal && bookingFrame) {
+        bookingFrame.src = bookingUrls[serviceType];
+        modal.style.display = 'block';
+    }
+}
+
+// Add event listeners when the document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('bookingModal');
+    const bookingFrame = document.getElementById('booking-frame');
+    const closeBtn = document.querySelector('.close');
+
+    if (closeBtn && modal) {
+        // Close modal when clicking the close button
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+            if (bookingFrame) {
+                bookingFrame.src = ''; // Clear the frame
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                if (bookingFrame) {
+                    bookingFrame.src = ''; // Clear the frame
+                }
+            }
+        }
+    }
+});
